@@ -757,7 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_label_Pools_11_eval_expression(context) {
+function exp_label_Pools_12_eval_expression(context) {
     // 
 
     var feature = context.feature;
@@ -770,7 +770,7 @@ function exp_label_Pools_11_eval_expression(context) {
 }
 
 
-function exp_label_Places_12_eval_expression(context) {
+function exp_label_Places_13_eval_expression(context) {
     // Hebrew_Name || '\n' || English_Name || '\n' || Height_m || ' m'
 
     var feature = context.feature;
