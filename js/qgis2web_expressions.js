@@ -757,27 +757,14 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_label_Pools_12_eval_expression(context) {
-    // 
+function exp_label_Tunnels_10_eval_expression(context) {
+    // Name
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return null;
+        return feature.properties['Name'] ;
     } else {
-        return null;
-    }
-}
-
-
-function exp_label_Places_13_eval_expression(context) {
-    // Hebrew_Name || '\n' || English_Name || '\n' || Height_m || ' m'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((((feature.properties['Hebrew_Name']  + '\n') + feature.properties['English_Name'] ) + '\n') + feature.properties['Height_m'] ) + ' m');
-    } else {
-        return (((((feature['Hebrew_Name']  + '\n') + feature['English_Name'] ) + '\n') + feature['Height_m'] ) + ' m');
+        return feature['Name'] ;
     }
 }
