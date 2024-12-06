@@ -20,7 +20,7 @@
             margin: 0;
         }
         </style>
-        <title>Jerusalem water system</title>
+        <title>Jerusalem Water System</title>
     </head>
     <body>
         <div id="map">
@@ -56,17 +56,6 @@
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
-              highlightLayer.setStyle({
-                color: '#00d9ff',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#00d9ff',
-                fillOpacity: 1
-              });
-            }
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
@@ -110,7 +99,7 @@
             return this._div;
         };
         title.update = function () {
-            this._div.innerHTML = '<h2>Jerusalem water system</h2>';
+            this._div.innerHTML = '<h2>Jerusalem Water System</h2>';
         };
         title.addTo(map);
         var abstract = new L.Control({'position':'bottomright'});
@@ -131,7 +120,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Prepared by Avi Klayman - avi@meteor.co.il<br />An effort to summarize many researchs and documents relating to the exact paths of the Aqueducts into Jerusalem. All tunnels were marked with their exact geo-location. Any comments and suggestions are welcomed.<br /><br />Distributed under CC BY-NC-ND: This license enables reusers to copy and distribute the material in any medium or format in unadapted form only, for noncommercial purposes only, and only so long as attribution is given to the creator. CC BY-NC-ND includes the following elements:<br /><br /> BY: credit must be given to the creator.<br /> NC: Only noncommercial uses of the work are permitted.<br /> ND: No derivatives or adaptations of the work are permitted';
+                this._div.innerHTML = 'Prepared by Avi Klayman - avi@meteor.co.il<br /><br />This work summarizes numerous research findings and documents regarding the precise routes of the Roman-era aqueducts leading into Jerusalem. Each tunnel is mapped with exact geographical coordinates. <br /><br />Any feedback or suggestions are welcome.<br /><br />Distributed under CC BY-NC-ND: This license enables reusers to copy and distribute the material in any medium or format in unadapted form only, for noncommercial purposes only, and only so long as attribution is given to the creator. CC BY-NC-ND includes the following elements:<br />* BY: credit must be given to the creator.<br />* NC: Only noncommercial uses of the work are permitted.<br />* ND: No derivatives or adaptations of the work are permitted';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -181,11 +170,6 @@
         function pop_KuzeivatoArrub_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -235,11 +219,6 @@
         function pop_FuredistoArrub_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -251,6 +230,9 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -289,11 +271,6 @@
         function pop_ArrubtoSolomon_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -305,6 +282,9 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Name_Heb</strong><br />' + (feature.properties['Name_Heb'] !== null ? autolinker.link(feature.properties['Name_Heb'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -343,11 +323,6 @@
         function pop_BiyartoSolomon_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -361,7 +336,7 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Begin'] !== null ? autolinker.link(feature.properties['Begin'].toLocaleString()) : '') + '</td>\
@@ -407,11 +382,6 @@
         function pop_LowerSouth_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -469,11 +439,6 @@
         function pop_LowerCentral_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -523,11 +488,6 @@
         function pop_LowerNorth_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -577,11 +537,6 @@
         function pop_UpperAqueduct_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -631,11 +586,6 @@
         function pop_Tunnels_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -654,6 +604,9 @@
                     <tr>\
                         <th scope="row">Length</th>\
                         <td class="visible-with-data" id="Length">' + (feature.properties['Length'] !== null ? autolinker.link(feature.properties['Length'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Name Hebrew:</th>\
@@ -710,11 +663,6 @@
         function pop_Shafts_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -780,11 +728,6 @@
         function pop_Pools_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -860,11 +803,6 @@
         function pop_Digs_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -944,11 +882,6 @@
         function pop_Places_14(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -971,6 +904,9 @@
                     <tr>\
                         <th scope="row">Height (m):</th>\
                         <td class="visible-with-data" id="Height_m">' + (feature.properties['Height_m'] !== null ? autolinker.link(feature.properties['Height_m'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1040,8 +976,8 @@
             {label: '<img src="legend/ArrubtoSolomon_4.png" /> Arrub to Solomon', layer: layer_ArrubtoSolomon_4},
             {label: '<img src="legend/FuredistoArrub_3.png" /> Furedis to Arrub', layer: layer_FuredistoArrub_3},
             {label: '<img src="legend/KuzeivatoArrub_2.png" /> Kuzeiva to Arrub', layer: layer_KuzeivatoArrub_2},
-            {label: "Thunderforest_Outdoors_10M", layer: layer_Thunderforest_Outdoors_10M_1, radioGroup: 'bm' },
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0, radioGroup: 'bm' },]
+            {label: "Thunderforest_Outdoors_10M", layer: layer_Thunderforest_Outdoors_10M_1},
+            {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
