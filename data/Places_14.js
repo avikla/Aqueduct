@@ -7,7 +7,6 @@ var json_Places_14 = {
 { "type": "Feature", "properties": { "Hebrew_Nam": "הר הבית", "English_Na": "Temple Mount", "Height_m": "732", "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.232651935752124, 31.776647244344421 ] } },
 { "type": "Feature", "properties": { "Hebrew_Nam": "ביר פורדיס", "English_Na": "Bir Furedis", "Height_m": "861", "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.131891760294266, 31.630162637847963 ] } },
 { "type": "Feature", "properties": { "Hebrew_Nam": "עין קוזייבה", "English_Na": "Ain Kueiziba", "Height_m": "849", "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.151317828579884, 31.602989097720215 ] } },
-{ "type": "Feature", "properties": { "Hebrew_Nam": "צור באהר", "English_Na": "Sur Bahir", "Height_m": null, "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.232637588582051, 31.737881190793654 ] } },
 { "type": "Feature", "properties": { "Hebrew_Nam": "עין צאלח", "English_Na": "Ein Salah", "Height_m": "825", "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.166244, 31.690786 ] } },
 { "type": "Feature", "properties": { "Hebrew_Nam": "עין בורק", "English_Na": "Ein Borek", "Height_m": "802", "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.154077599773835, 31.699164747325561 ] } },
 { "type": "Feature", "properties": { "Hebrew_Nam": "עין פרוגה", "English_Na": "Ein Faruga", "Height_m": "766", "Link": null }, "geometry": { "type": "Point", "coordinates": [ 35.173282775428362, 31.687852479002302 ] } },
