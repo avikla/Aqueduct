@@ -46,9 +46,9 @@
         <script src="data/South_6.js"></script>
         <script src="data/Central_7.js"></script>
         <script src="data/North_8.js"></script>
-        <script src="data/Estimates_9.js"></script>
+        <script src="data/Estimatepath_9.js"></script>
         <script src="data/Siphons_10.js"></script>
-        <script src="data/Approved_11.js"></script>
+        <script src="data/Knownpath_11.js"></script>
         <script src="data/Tunnels_12.js"></script>
         <script src="data/Shafts_13.js"></script>
         <script src="data/Pools_14.js"></script>
@@ -69,7 +69,6 @@
                 fillOpacity: 1
               });
             }
-            highlightLayer.openPopup();
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
@@ -188,13 +187,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -241,13 +233,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -299,13 +284,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -355,13 +333,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -414,13 +385,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -429,8 +393,7 @@
                         <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">End</th>\
-                        <td class="visible-with-data" id="End">' + (feature.properties['End'] !== null ? autolinker.link(feature.properties['End'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['End'] !== null ? autolinker.link(feature.properties['End'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -450,7 +413,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_South_6');
@@ -458,7 +421,7 @@
         map.getPane('pane_South_6').style['mix-blend-mode'] = 'normal';
         var layer_South_6 = new L.geoJson(json_South_6, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_South_6',
             layerName: 'layer_South_6',
             pane: 'pane_South_6',
@@ -474,13 +437,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -529,13 +485,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -575,20 +524,13 @@
         });
         bounds_group.addLayer(layer_North_8);
         map.addLayer(layer_North_8);
-        function pop_Estimates_9(feature, layer) {
+        function pop_Estimatepath_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -608,9 +550,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Estimates_9_0() {
+        function style_Estimatepath_9_0() {
             return {
-                pane: 'pane_Estimates_9',
+                pane: 'pane_Estimatepath_9',
                 opacity: 1,
                 color: 'rgba(72,123,182,1.0)',
                 dashArray: '',
@@ -621,20 +563,20 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Estimates_9');
-        map.getPane('pane_Estimates_9').style.zIndex = 409;
-        map.getPane('pane_Estimates_9').style['mix-blend-mode'] = 'normal';
-        var layer_Estimates_9 = new L.geoJson(json_Estimates_9, {
+        map.createPane('pane_Estimatepath_9');
+        map.getPane('pane_Estimatepath_9').style.zIndex = 409;
+        map.getPane('pane_Estimatepath_9').style['mix-blend-mode'] = 'normal';
+        var layer_Estimatepath_9 = new L.geoJson(json_Estimatepath_9, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Estimates_9',
-            layerName: 'layer_Estimates_9',
-            pane: 'pane_Estimates_9',
-            onEachFeature: pop_Estimates_9,
-            style: style_Estimates_9_0,
+            dataVar: 'json_Estimatepath_9',
+            layerName: 'layer_Estimatepath_9',
+            pane: 'pane_Estimatepath_9',
+            onEachFeature: pop_Estimatepath_9,
+            style: style_Estimatepath_9_0,
         });
-        bounds_group.addLayer(layer_Estimates_9);
-        map.addLayer(layer_Estimates_9);
+        bounds_group.addLayer(layer_Estimatepath_9);
+        map.addLayer(layer_Estimatepath_9);
         function pop_Siphons_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -642,13 +584,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -694,20 +629,13 @@
         });
         bounds_group.addLayer(layer_Siphons_10);
         map.addLayer(layer_Siphons_10);
-        function pop_Approved_11(feature, layer) {
+        function pop_Knownpath_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -721,9 +649,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Approved_11_0() {
+        function style_Knownpath_11_0() {
             return {
-                pane: 'pane_Approved_11',
+                pane: 'pane_Knownpath_11',
                 opacity: 1,
                 color: 'rgba(72,157,231,1.0)',
                 dashArray: '',
@@ -734,20 +662,20 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Approved_11');
-        map.getPane('pane_Approved_11').style.zIndex = 411;
-        map.getPane('pane_Approved_11').style['mix-blend-mode'] = 'normal';
-        var layer_Approved_11 = new L.geoJson(json_Approved_11, {
+        map.createPane('pane_Knownpath_11');
+        map.getPane('pane_Knownpath_11').style.zIndex = 411;
+        map.getPane('pane_Knownpath_11').style['mix-blend-mode'] = 'normal';
+        var layer_Knownpath_11 = new L.geoJson(json_Knownpath_11, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Approved_11',
-            layerName: 'layer_Approved_11',
-            pane: 'pane_Approved_11',
-            onEachFeature: pop_Approved_11,
-            style: style_Approved_11_0,
+            dataVar: 'json_Knownpath_11',
+            layerName: 'layer_Knownpath_11',
+            pane: 'pane_Knownpath_11',
+            onEachFeature: pop_Knownpath_11,
+            style: style_Knownpath_11_0,
         });
-        bounds_group.addLayer(layer_Approved_11);
-        map.addLayer(layer_Approved_11);
+        bounds_group.addLayer(layer_Knownpath_11);
+        map.addLayer(layer_Knownpath_11);
         function pop_Tunnels_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -755,13 +683,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -772,9 +693,6 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Length"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length'] !== null ? autolinker.link(feature.properties['Length'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Name HE"colspan="2"><strong>Name Hebrew:</strong><br />' + (feature.properties['Name HE'] !== null ? autolinker.link(feature.properties['Name HE'].toLocaleString()) : '') + '</td>\
@@ -834,13 +752,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -905,13 +816,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -935,7 +839,7 @@
                         <td class="visible-with-data" id="Width"colspan="2"><strong>Width (m):</strong><br />' + (feature.properties['Width'] !== null ? autolinker.link(feature.properties['Width'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Depth"colspan="2"><strong>Depth</strong><br />' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -981,13 +885,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -1063,13 +960,6 @@
                         if (typeof e.target._eventParents[i].resetStyle === 'function') {
                             e.target._eventParents[i].resetStyle(e.target);
                         }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
                     }
                 },
                 mouseover: highlightFeature,
@@ -1160,9 +1050,9 @@
             {label: '<img src="legend/Shafts_13.png" /> Shafts', layer: layer_Shafts_13},
             {label: '<img src="legend/Tunnels_12.png" /> Tunnels', layer: layer_Tunnels_12},
         {label: '<b>Upper Aquaduct</b>', selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Approved_11.png" /> Approved', layer: layer_Approved_11},
+            {label: '<img src="legend/Knownpath_11.png" /> Known path', layer: layer_Knownpath_11},
             {label: '<img src="legend/Siphons_10.png" /> Siphons', layer: layer_Siphons_10},
-            {label: '<img src="legend/Estimates_9.png" /> Estimates', layer: layer_Estimates_9},]},
+            {label: '<img src="legend/Estimatepath_9.png" /> Estimate path', layer: layer_Estimatepath_9},]},
         {label: '<b>Lower Aquaduct</b>', selectAllCheckbox: true, children: [
             {label: '<img src="legend/North_8.png" /> North', layer: layer_North_8},
             {label: '<img src="legend/Central_7.png" /> Central', layer: layer_Central_7},
@@ -1185,12 +1075,12 @@
         lay.addTo(map);
         setBounds();
         var i = 0;
-        layer_Estimates_9.eachLayer(function(layer) {
+        layer_Estimatepath_9.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name_EN'] !== null?String('<div style="color: #323232; font-size: 12pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name_EN']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Estimates_9'});
+            layer.bindTooltip((layer.feature.properties['Name_EN'] !== null?String('<div style="color: #323232; font-size: 12pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name_EN']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Estimatepath_9'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1275,15 +1165,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Estimates_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+        resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
         map.on("zoomend", function(){
-            resetLabels([layer_Estimates_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+            resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Estimates_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+            resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Estimates_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+            resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
         });
         </script>
     </body>
