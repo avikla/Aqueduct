@@ -43,9 +43,9 @@
         <script src="data/FuredistoArrub_3.js"></script>
         <script src="data/ArrubtoSolomon_4.js"></script>
         <script src="data/BiyartoSolomon_5.js"></script>
-        <script src="data/LowerSouth_6.js"></script>
-        <script src="data/LowerCentral_7.js"></script>
-        <script src="data/LowerNorth_8.js"></script>
+        <script src="data/South_6.js"></script>
+        <script src="data/Central_7.js"></script>
+        <script src="data/North_8.js"></script>
         <script src="data/Estimates_9.js"></script>
         <script src="data/Siphons_10.js"></script>
         <script src="data/Approved_11.js"></script>
@@ -406,7 +406,7 @@
         });
         bounds_group.addLayer(layer_BiyartoSolomon_5);
         map.addLayer(layer_BiyartoSolomon_5);
-        function pop_LowerSouth_6(feature, layer) {
+        function pop_South_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -440,9 +440,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LowerSouth_6_0() {
+        function style_South_6_0() {
             return {
-                pane: 'pane_LowerSouth_6',
+                pane: 'pane_South_6',
                 opacity: 1,
                 color: 'rgba(190,32,80,1.0)',
                 dashArray: '',
@@ -453,21 +453,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_LowerSouth_6');
-        map.getPane('pane_LowerSouth_6').style.zIndex = 406;
-        map.getPane('pane_LowerSouth_6').style['mix-blend-mode'] = 'normal';
-        var layer_LowerSouth_6 = new L.geoJson(json_LowerSouth_6, {
+        map.createPane('pane_South_6');
+        map.getPane('pane_South_6').style.zIndex = 406;
+        map.getPane('pane_South_6').style['mix-blend-mode'] = 'normal';
+        var layer_South_6 = new L.geoJson(json_South_6, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_LowerSouth_6',
-            layerName: 'layer_LowerSouth_6',
-            pane: 'pane_LowerSouth_6',
-            onEachFeature: pop_LowerSouth_6,
-            style: style_LowerSouth_6_0,
+            dataVar: 'json_South_6',
+            layerName: 'layer_South_6',
+            pane: 'pane_South_6',
+            onEachFeature: pop_South_6,
+            style: style_South_6_0,
         });
-        bounds_group.addLayer(layer_LowerSouth_6);
-        map.addLayer(layer_LowerSouth_6);
-        function pop_LowerCentral_7(feature, layer) {
+        bounds_group.addLayer(layer_South_6);
+        map.addLayer(layer_South_6);
+        function pop_Central_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -494,9 +494,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LowerCentral_7_0() {
+        function style_Central_7_0() {
             return {
-                pane: 'pane_LowerCentral_7',
+                pane: 'pane_Central_7',
                 opacity: 1,
                 color: 'rgba(190,32,80,1.0)',
                 dashArray: '',
@@ -507,21 +507,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_LowerCentral_7');
-        map.getPane('pane_LowerCentral_7').style.zIndex = 407;
-        map.getPane('pane_LowerCentral_7').style['mix-blend-mode'] = 'normal';
-        var layer_LowerCentral_7 = new L.geoJson(json_LowerCentral_7, {
+        map.createPane('pane_Central_7');
+        map.getPane('pane_Central_7').style.zIndex = 407;
+        map.getPane('pane_Central_7').style['mix-blend-mode'] = 'normal';
+        var layer_Central_7 = new L.geoJson(json_Central_7, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_LowerCentral_7',
-            layerName: 'layer_LowerCentral_7',
-            pane: 'pane_LowerCentral_7',
-            onEachFeature: pop_LowerCentral_7,
-            style: style_LowerCentral_7_0,
+            dataVar: 'json_Central_7',
+            layerName: 'layer_Central_7',
+            pane: 'pane_Central_7',
+            onEachFeature: pop_Central_7,
+            style: style_Central_7_0,
         });
-        bounds_group.addLayer(layer_LowerCentral_7);
-        map.addLayer(layer_LowerCentral_7);
-        function pop_LowerNorth_8(feature, layer) {
+        bounds_group.addLayer(layer_Central_7);
+        map.addLayer(layer_Central_7);
+        function pop_North_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -548,9 +548,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LowerNorth_8_0() {
+        function style_North_8_0() {
             return {
-                pane: 'pane_LowerNorth_8',
+                pane: 'pane_North_8',
                 opacity: 1,
                 color: 'rgba(173,20,72,1.0)',
                 dashArray: '',
@@ -561,20 +561,20 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_LowerNorth_8');
-        map.getPane('pane_LowerNorth_8').style.zIndex = 408;
-        map.getPane('pane_LowerNorth_8').style['mix-blend-mode'] = 'normal';
-        var layer_LowerNorth_8 = new L.geoJson(json_LowerNorth_8, {
+        map.createPane('pane_North_8');
+        map.getPane('pane_North_8').style.zIndex = 408;
+        map.getPane('pane_North_8').style['mix-blend-mode'] = 'normal';
+        var layer_North_8 = new L.geoJson(json_North_8, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_LowerNorth_8',
-            layerName: 'layer_LowerNorth_8',
-            pane: 'pane_LowerNorth_8',
-            onEachFeature: pop_LowerNorth_8,
-            style: style_LowerNorth_8_0,
+            dataVar: 'json_North_8',
+            layerName: 'layer_North_8',
+            pane: 'pane_North_8',
+            onEachFeature: pop_North_8,
+            style: style_North_8_0,
         });
-        bounds_group.addLayer(layer_LowerNorth_8);
-        map.addLayer(layer_LowerNorth_8);
+        bounds_group.addLayer(layer_North_8);
+        map.addLayer(layer_North_8);
         function pop_Estimates_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -596,9 +596,6 @@
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
@@ -777,8 +774,7 @@
                         <td class="visible-with-data" id="Length"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length'] !== null ? autolinker.link(feature.properties['Length'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Depth (m):</th>\
-                        <td class="visible-with-data" id="Depth">' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Name HE"colspan="2"><strong>Name Hebrew:</strong><br />' + (feature.properties['Name HE'] !== null ? autolinker.link(feature.properties['Name HE'].toLocaleString()) : '') + '</td>\
@@ -1168,9 +1164,9 @@
             {label: '<img src="legend/Siphons_10.png" /> Siphons', layer: layer_Siphons_10},
             {label: '<img src="legend/Estimates_9.png" /> Estimates', layer: layer_Estimates_9},]},
         {label: '<b>Lower Aquaduct</b>', selectAllCheckbox: true, children: [
-            {label: '<img src="legend/LowerNorth_8.png" /> Lower North', layer: layer_LowerNorth_8},
-            {label: '<img src="legend/LowerCentral_7.png" /> Lower Central', layer: layer_LowerCentral_7},
-            {label: '<img src="legend/LowerSouth_6.png" /> Lower South', layer: layer_LowerSouth_6},]},
+            {label: '<img src="legend/North_8.png" /> North', layer: layer_North_8},
+            {label: '<img src="legend/Central_7.png" /> Central', layer: layer_Central_7},
+            {label: '<img src="legend/South_6.png" /> South', layer: layer_South_6},]},
             {label: '<img src="legend/BiyartoSolomon_5.png" /> Biyar to Solomon', layer: layer_BiyartoSolomon_5},
             {label: '<img src="legend/ArrubtoSolomon_4.png" /> Arrub to Solomon', layer: layer_ArrubtoSolomon_4},
             {label: '<img src="legend/FuredistoArrub_3.png" /> Furedis to Arrub', layer: layer_FuredistoArrub_3},
@@ -1194,7 +1190,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_Estimates_9_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 12pt; font-family: \'Open Sans\', sans-serif;">' + exp_label_Estimates_9_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Estimates_9'});
+            layer.bindTooltip((layer.feature.properties['Name_EN'] !== null?String('<div style="color: #323232; font-size: 12pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name_EN']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Estimates_9'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
