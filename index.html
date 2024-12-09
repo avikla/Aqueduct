@@ -47,12 +47,12 @@
         <script src="data/Central_7.js"></script>
         <script src="data/North_8.js"></script>
         <script src="data/Estimatepath_9.js"></script>
-        <script src="data/Siphons_10.js"></script>
-        <script src="data/Knownpath_11.js"></script>
+        <script src="data/Knownpath_10.js"></script>
+        <script src="data/SiphonBridge_11.js"></script>
         <script src="data/Tunnels_12.js"></script>
         <script src="data/Shafts_13.js"></script>
         <script src="data/Pools_14.js"></script>
-        <script src="data/Digs_15.js"></script>
+        <script src="data/ArticlesDigs_15.js"></script>
         <script src="data/Places_16.js"></script>
         <script>
         var highlightLayer;
@@ -338,10 +338,6 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Name</th>\
-                        <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -413,7 +409,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_South_6');
@@ -421,7 +417,7 @@
         map.getPane('pane_South_6').style['mix-blend-mode'] = 'normal';
         var layer_South_6 = new L.geoJson(json_South_6, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_South_6',
             layerName: 'layer_South_6',
             pane: 'pane_South_6',
@@ -550,17 +546,47 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Estimatepath_9_0() {
-            return {
+        function style_Estimatepath_9_0(feature) {
+            switch(String(feature.properties['Name_EN'])) {
+                case 'Estimate A':
+                    return {
                 pane: 'pane_Estimatepath_9',
                 opacity: 1,
-                color: 'rgba(72,123,182,1.0)',
+                color: 'rgba(24,207,94,1.0)',
                 dashArray: '',
                 lineCap: 'round',
                 lineJoin: 'round',
                 weight: 6.0,
                 fillOpacity: 0,
                 interactive: false,
+            }
+                    break;
+                case 'Estimate B':
+                    return {
+                pane: 'pane_Estimatepath_9',
+                opacity: 1,
+                color: 'rgba(217,130,77,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_Estimatepath_9',
+                opacity: 1,
+                color: 'rgba(143,103,213,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+                    break;
             }
         }
         map.createPane('pane_Estimatepath_9');
@@ -577,7 +603,54 @@
         });
         bounds_group.addLayer(layer_Estimatepath_9);
         map.addLayer(layer_Estimatepath_9);
-        function pop_Siphons_10(feature, layer) {
+        function pop_Knownpath_10(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Knownpath_10_0() {
+            return {
+                pane: 'pane_Knownpath_10',
+                opacity: 1,
+                color: 'rgba(72,157,231,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Knownpath_10');
+        map.getPane('pane_Knownpath_10').style.zIndex = 410;
+        map.getPane('pane_Knownpath_10').style['mix-blend-mode'] = 'normal';
+        var layer_Knownpath_10 = new L.geoJson(json_Knownpath_10, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Knownpath_10',
+            layerName: 'layer_Knownpath_10',
+            pane: 'pane_Knownpath_10',
+            onEachFeature: pop_Knownpath_10,
+            style: style_Knownpath_10_0,
+        });
+        bounds_group.addLayer(layer_Knownpath_10);
+        map.addLayer(layer_Knownpath_10);
+        function pop_SiphonBridge_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -590,10 +663,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name_EN</th>\
+                        <td class="visible-with-data" id="Name_EN">' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
@@ -609,73 +680,43 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Siphons_10_0() {
+        function style_SiphonBridge_11_0() {
             return {
-                pane: 'pane_Siphons_10',
-                interactive: false,
-            }
-        }
-        map.createPane('pane_Siphons_10');
-        map.getPane('pane_Siphons_10').style.zIndex = 410;
-        map.getPane('pane_Siphons_10').style['mix-blend-mode'] = 'normal';
-        var layer_Siphons_10 = new L.geoJson(json_Siphons_10, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_Siphons_10',
-            layerName: 'layer_Siphons_10',
-            pane: 'pane_Siphons_10',
-            onEachFeature: pop_Siphons_10,
-            style: style_Siphons_10_0,
-        });
-        bounds_group.addLayer(layer_Siphons_10);
-        map.addLayer(layer_Siphons_10);
-        function pop_Knownpath_11(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Knownpath_11_0() {
-            return {
-                pane: 'pane_Knownpath_11',
+                pane: 'pane_SiphonBridge_11',
+                shape: 'diamond',
+                radius: 8.8,
                 opacity: 1,
-                color: 'rgba(72,157,231,1.0)',
+                color: 'rgba(128,17,25,1.0)',
                 dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 6.0,
-                fillOpacity: 0,
-                interactive: false,
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
             }
         }
-        map.createPane('pane_Knownpath_11');
-        map.getPane('pane_Knownpath_11').style.zIndex = 411;
-        map.getPane('pane_Knownpath_11').style['mix-blend-mode'] = 'normal';
-        var layer_Knownpath_11 = new L.geoJson(json_Knownpath_11, {
+        map.createPane('pane_SiphonBridge_11');
+        map.getPane('pane_SiphonBridge_11').style.zIndex = 411;
+        map.getPane('pane_SiphonBridge_11').style['mix-blend-mode'] = 'normal';
+        var layer_SiphonBridge_11 = new L.geoJson(json_SiphonBridge_11, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_Knownpath_11',
-            layerName: 'layer_Knownpath_11',
-            pane: 'pane_Knownpath_11',
-            onEachFeature: pop_Knownpath_11,
-            style: style_Knownpath_11_0,
+            interactive: true,
+            dataVar: 'json_SiphonBridge_11',
+            layerName: 'layer_SiphonBridge_11',
+            pane: 'pane_SiphonBridge_11',
+            onEachFeature: pop_SiphonBridge_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_SiphonBridge_11_0(feature));
+            },
         });
-        bounds_group.addLayer(layer_Knownpath_11);
-        map.addLayer(layer_Knownpath_11);
+        bounds_group.addLayer(layer_SiphonBridge_11);
+        map.addLayer(layer_SiphonBridge_11);
         function pop_Tunnels_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -839,7 +880,7 @@
                         <td class="visible-with-data" id="Width"colspan="2"><strong>Width (m):</strong><br />' + (feature.properties['Width'] !== null ? autolinker.link(feature.properties['Width'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Depth"colspan="2"><strong>Depth</strong><br />' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Depth"colspan="2"><strong>Depth (m):</strong><br />' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -878,7 +919,7 @@
         });
         bounds_group.addLayer(layer_Pools_14);
         map.addLayer(layer_Pools_14);
-        function pop_Digs_15(feature, layer) {
+        function pop_ArticlesDigs_15(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -916,9 +957,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Digs_15_0() {
+        function style_ArticlesDigs_15_0() {
             return {
-                pane: 'pane_Digs_15',
+                pane: 'pane_ArticlesDigs_15',
                 shape: 'diamond',
                 radius: 8.8,
                 opacity: 1,
@@ -933,26 +974,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Digs_15');
-        map.getPane('pane_Digs_15').style.zIndex = 415;
-        map.getPane('pane_Digs_15').style['mix-blend-mode'] = 'normal';
-        var layer_Digs_15 = new L.geoJson(json_Digs_15, {
+        map.createPane('pane_ArticlesDigs_15');
+        map.getPane('pane_ArticlesDigs_15').style.zIndex = 415;
+        map.getPane('pane_ArticlesDigs_15').style['mix-blend-mode'] = 'normal';
+        var layer_ArticlesDigs_15 = new L.geoJson(json_ArticlesDigs_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Digs_15',
-            layerName: 'layer_Digs_15',
-            pane: 'pane_Digs_15',
-            onEachFeature: pop_Digs_15,
+            dataVar: 'json_ArticlesDigs_15',
+            layerName: 'layer_ArticlesDigs_15',
+            pane: 'pane_ArticlesDigs_15',
+            onEachFeature: pop_ArticlesDigs_15,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Digs_15_0(feature));
+                return L.shapeMarker(latlng, style_ArticlesDigs_15_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Digs_15);
-        map.addLayer(layer_Digs_15);
+        bounds_group.addLayer(layer_ArticlesDigs_15);
+        map.addLayer(layer_ArticlesDigs_15);
         function pop_Places_16(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -1021,18 +1062,6 @@
         });
         bounds_group.addLayer(layer_Places_16);
         map.addLayer(layer_Places_16);
-        map.on("zoomend", function(e) {
-            if (map.getZoom() <= 19 && map.getZoom() >= 14) {
-                map.addLayer(layer_Siphons_10);
-            } else if (map.getZoom() > 19 || map.getZoom() < 14) {
-                map.removeLayer(layer_Siphons_10);
-            }
-        });
-            if (map.getZoom() <= 19 && map.getZoom() >= 14) {
-                map.addLayer(layer_Siphons_10);
-            } else if (map.getZoom() > 19 || map.getZoom() < 14) {
-                map.removeLayer(layer_Siphons_10);
-            }
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -1045,14 +1074,14 @@
         .title += 'Search for a place';
         var overlaysTree = [
             {label: '<img src="legend/Places_16.png" /> Places', layer: layer_Places_16},
-            {label: '<img src="legend/Digs_15.png" /> Digs', layer: layer_Digs_15},
+            {label: '<img src="legend/ArticlesDigs_15.png" /> Articles-Digs', layer: layer_ArticlesDigs_15},
             {label: '<img src="legend/Pools_14.png" /> Pools', layer: layer_Pools_14},
             {label: '<img src="legend/Shafts_13.png" /> Shafts', layer: layer_Shafts_13},
             {label: '<img src="legend/Tunnels_12.png" /> Tunnels', layer: layer_Tunnels_12},
+            {label: '<img src="legend/SiphonBridge_11.png" /> Siphon-Bridge', layer: layer_SiphonBridge_11},
         {label: '<b>Upper Aquaduct</b>', selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Knownpath_11.png" /> Known path', layer: layer_Knownpath_11},
-            {label: '<img src="legend/Siphons_10.png" /> Siphons', layer: layer_Siphons_10},
-            {label: '<img src="legend/Estimatepath_9.png" /> Estimate path', layer: layer_Estimatepath_9},]},
+            {label: '<img src="legend/Knownpath_10.png" /> Known path', layer: layer_Knownpath_10},
+            {label: 'Estimate path<br /><table><tr><td style="text-align: center;"><img src="legend/Estimatepath_9_EstimateA0.png" /></td><td>Estimate A</td></tr><tr><td style="text-align: center;"><img src="legend/Estimatepath_9_EstimateB1.png" /></td><td>Estimate B</td></tr><tr><td style="text-align: center;"><img src="legend/Estimatepath_9_2.png" /></td><td></td></tr></table>', layer: layer_Estimatepath_9},]},
         {label: '<b>Lower Aquaduct</b>', selectAllCheckbox: true, children: [
             {label: '<img src="legend/North_8.png" /> North', layer: layer_North_8},
             {label: '<img src="legend/Central_7.png" /> Central', layer: layer_Central_7},
@@ -1088,12 +1117,12 @@
               i++;
         });
         var i = 0;
-        layer_Siphons_10.eachLayer(function(layer) {
+        layer_SiphonBridge_11.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name_EN'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name_EN']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Siphons_10'});
+            layer.bindTooltip((layer.feature.properties['Name_EN'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name_EN']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_SiphonBridge_11'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1140,12 +1169,12 @@
               i++;
         });
         var i = 0;
-        layer_Digs_15.eachLayer(function(layer) {
+        layer_ArticlesDigs_15.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['English_Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['English_Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Digs_15'});
+            layer.bindTooltip((layer.feature.properties['English_Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['English_Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ArticlesDigs_15'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1165,15 +1194,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+        resetLabels([layer_Estimatepath_9,layer_SiphonBridge_11,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_ArticlesDigs_15,layer_Places_16]);
         map.on("zoomend", function(){
-            resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+            resetLabels([layer_Estimatepath_9,layer_SiphonBridge_11,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_ArticlesDigs_15,layer_Places_16]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+            resetLabels([layer_Estimatepath_9,layer_SiphonBridge_11,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_ArticlesDigs_15,layer_Places_16]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Estimatepath_9,layer_Siphons_10,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_Digs_15,layer_Places_16]);
+            resetLabels([layer_Estimatepath_9,layer_SiphonBridge_11,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_ArticlesDigs_15,layer_Places_16]);
         });
         </script>
     </body>
