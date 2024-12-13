@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,width=device-width">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
@@ -13,13 +13,6 @@
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
-	body {
-     	    font-family: Arial, sans-serif;
-     	    margin: 0;
-     	    padding:0;
-      	    height: 100vh;
-      	    overflow: auto; /* enable the whole page from scrolling */
-    	    }
         html, body, #map {
             width: 100%;
             height: 100%;
@@ -27,10 +20,9 @@
             margin: 0;
         }
         </style>
-        <title>Jerusalem Aqueduct Water System</title>
+        <title>Jerusalem Water System</title>
     </head>
     <body>
-
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -162,18 +154,19 @@
                 map.fitBounds(bounds_group.getBounds());
             }
         }
-        map.createPane('pane_GoogleSatellite_0');
-        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
-        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatellite_0',
+        map.createPane('pane_GoogleMapsStandard_0');
+        map.getPane('pane_GoogleMapsStandard_0').style.zIndex = 400;
+        var layer_GoogleMapsStandard_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleMapsStandard_0',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
-            maxNativeZoom: 20
+            maxNativeZoom: 19
         });
-        layer_GoogleSatellite_0;
+        layer_GoogleMapsStandard_0;
+        map.addLayer(layer_GoogleMapsStandard_0);
         map.createPane('pane_Thunderforest_Outdoors_10M_1');
         map.getPane('pane_Thunderforest_Outdoors_10M_1').style.zIndex = 401;
         var layer_Thunderforest_Outdoors_10M_1 = L.tileLayer('https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=386c32cff2054200938311a45cdfdbd8', {
@@ -199,6 +192,9 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -249,6 +245,9 @@
                     <tr>\
                         <td class="visible-with-data" id="Name"colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -297,7 +296,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Name_Heb</strong><br />' + (feature.properties['Name_Heb'] !== null ? autolinker.link(feature.properties['Name_Heb'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_Heb"colspan="2"><strong>Name_Heb</strong><br />' + (feature.properties['Name_Heb'] !== null ? autolinker.link(feature.properties['Name_Heb'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -446,6 +445,9 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -560,8 +562,8 @@
                     return {
                 pane: 'pane_Estimatepath_9',
                 opacity: 1,
-                color: 'rgba(24,207,94,1.0)',
-                dashArray: '',
+                color: 'rgba(34,141,50,1.0)',
+                dashArray: '24.0,12.0',
                 lineCap: 'round',
                 lineJoin: 'round',
                 weight: 6.0,
@@ -573,8 +575,8 @@
                     return {
                 pane: 'pane_Estimatepath_9',
                 opacity: 1,
-                color: 'rgba(217,130,77,1.0)',
-                dashArray: '',
+                color: 'rgba(255,127,0,1.0)',
+                dashArray: '24.0,12.0',
                 lineCap: 'round',
                 lineJoin: 'round',
                 weight: 6.0,
@@ -587,7 +589,7 @@
                 pane: 'pane_Estimatepath_9',
                 opacity: 1,
                 color: 'rgba(143,103,213,1.0)',
-                dashArray: '',
+                dashArray: '24.0,12.0',
                 lineCap: 'round',
                 lineJoin: 'round',
                 weight: 6.0,
@@ -702,7 +704,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,127,0,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_SiphonBridge_11');
@@ -710,7 +712,7 @@
         map.getPane('pane_SiphonBridge_11').style['mix-blend-mode'] = 'normal';
         var layer_SiphonBridge_11 = new L.geoJson(json_SiphonBridge_11, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_SiphonBridge_11',
             layerName: 'layer_SiphonBridge_11',
             pane: 'pane_SiphonBridge_11',
@@ -823,17 +825,16 @@
         function style_Shafts_13_0() {
             return {
                 pane: 'pane_Shafts_13',
-                shape: 'diamond',
                 radius: 6.0,
                 opacity: 1,
-                color: 'rgba(128,17,25,1.0)',
+                color: 'rgba(128,67,36,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(219,30,42,1.0)',
+                fillColor: 'rgba(227,26,28,1.0)',
                 interactive: true,
             }
         }
@@ -852,7 +853,7 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Shafts_13_0(feature));
+                return L.circleMarker(latlng, style_Shafts_13_0(feature));
             },
         });
         bounds_group.addLayer(layer_Shafts_13);
@@ -1086,8 +1087,8 @@
             {label: '<img src="legend/Pools_14.png" /> Pools', layer: layer_Pools_14},
             {label: '<img src="legend/Shafts_13.png" /> Shafts', layer: layer_Shafts_13},
             {label: '<img src="legend/Tunnels_12.png" /> Tunnels', layer: layer_Tunnels_12},
-            {label: '<img src="legend/SiphonBridge_11.png" /> Siphon-Bridge', layer: layer_SiphonBridge_11},
         {label: '<b>Upper Aquaduct</b>', selectAllCheckbox: true, children: [
+            {label: '<img src="legend/SiphonBridge_11.png" /> Siphon, Bridge', layer: layer_SiphonBridge_11},
             {label: '<img src="legend/Knownpath_10.png" /> Known path', layer: layer_Knownpath_10},
             {label: 'Estimate path<br /><table><tr><td style="text-align: center;"><img src="legend/Estimatepath_9_EstimateA0.png" /></td><td>Estimate A</td></tr><tr><td style="text-align: center;"><img src="legend/Estimatepath_9_EstimateB1.png" /></td><td>Estimate B</td></tr><tr><td style="text-align: center;"><img src="legend/Estimatepath_9_2.png" /></td><td></td></tr></table>', layer: layer_Estimatepath_9},]},
         {label: '<b>Lower Aquaduct</b>', selectAllCheckbox: true, children: [
@@ -1099,7 +1100,7 @@
             {label: '<img src="legend/FuredistoArrub_3.png" /> Furedis to Arrub', layer: layer_FuredistoArrub_3},
             {label: '<img src="legend/KuzeivatoArrub_2.png" /> Kuzeiva to Arrub', layer: layer_KuzeivatoArrub_2},
             {label: "Thunderforest_Outdoors_10M", layer: layer_Thunderforest_Outdoors_10M_1, radioGroup: 'bm' },
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0, radioGroup: 'bm' },]
+            {label: "Google Maps Standard", layer: layer_GoogleMapsStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -1213,19 +1214,5 @@
             resetLabels([layer_Estimatepath_9,layer_SiphonBridge_11,layer_Tunnels_12,layer_Shafts_13,layer_Pools_14,layer_ArticlesDigs_15,layer_Places_16]);
         });
         </script>
-
-    <section id="instructions-bibliography" style="margin-top: 2rem; padding: 1rem; border-top: 1px solid #ccc;">
-        <h2>Instructions for Use</h2>
-        <p>
-            Follow these steps to use this webpage:
-        </p>
-        <ol>
-            <li>Step 1: Navigate through the main menu to access various sections.</li>
-            <li>Step 2: Click on interactive elements for additional features.</li>
-            <li>Step 3: Use the search bar for specific content.</li>
-        </ol>
-
-        </section>
-
     </body>
 </html>
