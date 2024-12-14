@@ -193,10 +193,10 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -210,13 +210,13 @@
             return {
                 pane: 'pane_KuzeivatoArrub_2',
                 opacity: 1,
-                color: 'rgba(89,225,96,1.0)',
+                color: 'rgba(114,155,111,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_KuzeivatoArrub_2');
@@ -224,7 +224,7 @@
         map.getPane('pane_KuzeivatoArrub_2').style['mix-blend-mode'] = 'normal';
         var layer_KuzeivatoArrub_2 = new L.geoJson(json_KuzeivatoArrub_2, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_KuzeivatoArrub_2',
             layerName: 'layer_KuzeivatoArrub_2',
             pane: 'pane_KuzeivatoArrub_2',
@@ -246,10 +246,10 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -263,13 +263,13 @@
             return {
                 pane: 'pane_FuredistoArrub_3',
                 opacity: 1,
-                color: 'rgba(152,125,183,1.0)',
+                color: 'rgba(114,155,111,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_FuredistoArrub_3');
@@ -277,7 +277,7 @@
         map.getPane('pane_FuredistoArrub_3').style['mix-blend-mode'] = 'normal';
         var layer_FuredistoArrub_3 = new L.geoJson(json_FuredistoArrub_3, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_FuredistoArrub_3',
             layerName: 'layer_FuredistoArrub_3',
             pane: 'pane_FuredistoArrub_3',
@@ -299,10 +299,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="Name_Heb"colspan="2"><strong>Name_Heb</strong><br />' + (feature.properties['Name_Heb'] !== null ? autolinker.link(feature.properties['Name_Heb'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_EN"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="NameHEB"colspan="2"><strong>Name Hebrew:</strong><br />' + (feature.properties['NameHEB'] !== null ? autolinker.link(feature.properties['NameHEB'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Len"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Len'] !== null ? autolinker.link(feature.properties['Len'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -316,13 +319,13 @@
             return {
                 pane: 'pane_ArrubtoSolomon_4',
                 opacity: 1,
-                color: 'rgba(114,155,111,1.0)',
+                color: 'rgba(34,141,50,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_ArrubtoSolomon_4');
@@ -330,7 +333,7 @@
         map.getPane('pane_ArrubtoSolomon_4').style['mix-blend-mode'] = 'normal';
         var layer_ArrubtoSolomon_4 = new L.geoJson(json_ArrubtoSolomon_4, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_ArrubtoSolomon_4',
             layerName: 'layer_ArrubtoSolomon_4',
             pane: 'pane_ArrubtoSolomon_4',
@@ -352,7 +355,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Name_HE"colspan="2"><strong>Name_HE</strong><br />' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -372,7 +381,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_BiyartoSolomon_5');
@@ -380,7 +389,7 @@
         map.getPane('pane_BiyartoSolomon_5').style['mix-blend-mode'] = 'normal';
         var layer_BiyartoSolomon_5 = new L.geoJson(json_BiyartoSolomon_5, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_BiyartoSolomon_5',
             layerName: 'layer_BiyartoSolomon_5',
             pane: 'pane_BiyartoSolomon_5',
@@ -402,16 +411,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['End'] !== null ? autolinker.link(feature.properties['End'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_HE"colspan="2"><strong>Name Hebrew:</strong><br />' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -431,7 +437,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_South_6');
@@ -439,7 +445,7 @@
         map.getPane('pane_South_6').style['mix-blend-mode'] = 'normal';
         var layer_South_6 = new L.geoJson(json_South_6, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_South_6',
             layerName: 'layer_South_6',
             pane: 'pane_South_6',
@@ -461,16 +467,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_EN"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name-HE"colspan="2"><strong>Name Hebrew:</strong><br />' + (feature.properties['Name-HE'] !== null ? autolinker.link(feature.properties['Name-HE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name-HE'] !== null ? autolinker.link(feature.properties['Name-HE'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -490,7 +493,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_Central_7');
@@ -498,7 +501,7 @@
         map.getPane('pane_Central_7').style['mix-blend-mode'] = 'normal';
         var layer_Central_7 = new L.geoJson(json_Central_7, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Central_7',
             layerName: 'layer_Central_7',
             pane: 'pane_Central_7',
@@ -520,13 +523,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name-HE'] !== null ? autolinker.link(feature.properties['Name-HE'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name-HE"colspan="2"><strong>Name-HE</strong><br />' + (feature.properties['Name-HE'] !== null ? autolinker.link(feature.properties['Name-HE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name-EN'] !== null ? autolinker.link(feature.properties['Name-EN'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name-EN"colspan="2"><strong>Name-EN</strong><br />' + (feature.properties['Name-EN'] !== null ? autolinker.link(feature.properties['Name-EN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length_m</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -546,7 +549,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_North_8');
@@ -554,7 +557,7 @@
         map.getPane('pane_North_8').style['mix-blend-mode'] = 'normal';
         var layer_North_8 = new L.geoJson(json_North_8, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_North_8',
             layerName: 'layer_North_8',
             pane: 'pane_North_8',
@@ -576,13 +579,16 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_EN"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Link"colspan="2"><strong>Link:</strong><br />' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length-M'] !== null ? autolinker.link(feature.properties['Length-M'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_HE"colspan="2"><strong>Name_HE</strong><br />' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Length-M"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length-M'] !== null ? autolinker.link(feature.properties['Length-M'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -604,7 +610,7 @@
                 lineJoin: 'round',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Estimate B':
@@ -617,7 +623,7 @@
                 lineJoin: 'round',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
                     break;
                 default:
@@ -630,7 +636,7 @@
                 lineJoin: 'round',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
                     break;
             }
@@ -640,7 +646,7 @@
         map.getPane('pane_Estimatepath_9').style['mix-blend-mode'] = 'normal';
         var layer_Estimatepath_9 = new L.geoJson(json_Estimatepath_9, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Estimatepath_9',
             layerName: 'layer_Estimatepath_9',
             pane: 'pane_Estimatepath_9',
@@ -662,10 +668,16 @@
             });
             var popupContent = '<table>\
                     <tr>\
+                        <td class="visible-with-data" id="Name"colspan="2"><strong>Englsih Name:</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <td colspan="2">' + (feature.properties['Order'] !== null ? autolinker.link(feature.properties['Order'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name_HE"colspan="2"><strong>Name_HE</strong><br />' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Length_m"colspan="2"><strong>Length (m):</strong><br />' + (feature.properties['Length_m'] !== null ? autolinker.link(feature.properties['Length_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -685,7 +697,7 @@
                 lineJoin: 'bevel',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_Knownpath_10');
@@ -693,7 +705,7 @@
         map.getPane('pane_Knownpath_10').style['mix-blend-mode'] = 'normal';
         var layer_Knownpath_10 = new L.geoJson(json_Knownpath_10, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Knownpath_10',
             layerName: 'layer_Knownpath_10',
             pane: 'pane_Knownpath_10',
@@ -715,14 +727,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name_EN</th>\
-                        <td class="visible-with-data" id="Name_EN">' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Name_EN</strong><br />' + (feature.properties['Name_EN'] !== null ? autolinker.link(feature.properties['Name_EN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Name_HE</strong><br />' + (feature.properties['Name_HE'] !== null ? autolinker.link(feature.properties['Name_HE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Link"colspan="2"><strong>Link</strong><br />' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -746,7 +757,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,127,0,1.0)',
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_SiphonBridge_11');
@@ -754,7 +765,7 @@
         map.getPane('pane_SiphonBridge_11').style['mix-blend-mode'] = 'normal';
         var layer_SiphonBridge_11 = new L.geoJson(json_SiphonBridge_11, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_SiphonBridge_11',
             layerName: 'layer_SiphonBridge_11',
             pane: 'pane_SiphonBridge_11',
@@ -783,6 +794,9 @@
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Name_Engli"colspan="2"><strong>Name English:</strong><br />' + (feature.properties['Name_Engli'] !== null ? autolinker.link(feature.properties['Name_Engli'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Depth"colspan="2"><strong>Depth (m):</strong><br />' + (feature.properties['Depth'] !== null ? autolinker.link(feature.properties['Depth'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Name HE"colspan="2"><strong>Name Hebrew:</strong><br />' + (feature.properties['Name HE'] !== null ? autolinker.link(feature.properties['Name HE'].toLocaleString()) : '') + '</td>\
@@ -1068,6 +1082,9 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Link"colspan="2"><strong>Link</strong><br />' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Cap_Y_C"colspan="2"><strong>Yearly Capacity (m3):</strong><br />' + (feature.properties['Cap_Y_C'] !== null ? autolinker.link(feature.properties['Cap_Y_C'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
