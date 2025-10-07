@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main pages -->
+  <url>
+    <loc>https://jerusalem.meteor.co.il/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/about</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/bibliography</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Aqueduct and water system locations -->
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/solomons-pools</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/arrub-aqueduct</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/biyar-spring</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/etham-reservoir</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/gihon-spring</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/lower-aqueduct</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/high-level-aqueduct</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jerusalem.meteor.co.il/locations/temple-mount-connection</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Optional: datasets or downloads -->
+  <url>
+    <loc>https://jerusalem.meteor.co.il/downloads</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
