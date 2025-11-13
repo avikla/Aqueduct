@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-		<!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPWGKNPQMD"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPWGKNPQMD"></script>
         <script>
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
@@ -33,12 +32,27 @@
             padding: 0;
             margin: 0;
         }
+        
+        .map-container {
+          /* These are the default styles for mobile */
+          margin-left: 15px;
+          margin-right: 15px;
+          height: 80vh;
+        }
+
+        /* This media query applies styles ONLY to screens 768px and wider (tablets/desktops) */
+        @media (min-width: 768px) {
+          .map-container {
+            /* This restores your original margins for large screens */
+            margin-left: 75px;
+            margin-right: 75px;
+          }
+        }
         </style>
         
     </head>
    
     <body>
-		<!--Created by Avi Klayman, December 2024. All right reserved-->
 		<h1 style="color: #5e9ca0; text-align: center;"><span style="color: #008080;">The Aqueducts Water System to Jerusalem</span></h1>
 		<h2 style="color: #5e9ca0; text-align: center;"><span style="color: #008080;">Created by Avi Klayman</span></h2>
 		<h3 style="text-align: center;"><span style="color: #008080;"><a style="color: #008080;" href="mailto:avi@meteor.co.il">avi@meteor.co.il</a></span></h3>
@@ -70,14 +84,11 @@
 		<p>&nbsp;</p>
 		</div>
 
-        <!-- === MODIFIED SECTION START === -->
-        <div style="margin-left: 75px; margin-right: 75px; height: 80vh;">
+        <div class="map-container">
             <iframe frameborder = "0"; style = "z-index: 10; height: 100%; width: 100%; border: 0;" src = "Aqueduct.html">
             </iframe>
         </div>
-        <!-- === MODIFIED SECTION END === -->
-
-	<div style="margin-left: 100px;",font-family: Arial, sans-serif;>
+        <div style="margin-left: 100px;",font-family: Arial, sans-serif;>
         
     	<section id="instructions-bibliography" style="margin-top: 1 rem; border-top: 1px solid #ccc;">
         <h2>Instructions for Use</h2>
@@ -108,7 +119,7 @@
 						Aqueducts&rsquo;. Accessed 12 November 2024.</span><a
 						href="https://www.google.com/maps/d/viewer?mid=1wI1UDtKBqh2PjbJcPZv67-TSWC4"><span
 							style="font-size:11pt;font-family:Arial,sans-serif;">&nbsp;</span><u><span
-								style="color:#1155cc;font-size:11pt;font-family:Arial,sans-serif;">https://www.google.com/maps/d/viewer?mid=1wI1UDtKBqh2PjbJcPZv67-TSWC4</span></u></a><span
+								style="color:#1155cc;font-size:11pt;font-family:Arial,sans-serif;">https://www.google.com/maps/d/viewer?mid=1wI1UDtKBqh2PjbJcPZv67-TSWC4\u003c/span\u003e\u003c/u\u003e\u003c/a\u003e\u003cspan</span></u></a><span
 						style="font-size:11pt;font-family:Arial,sans-serif;">.</span></p>
 			</li>
 			<li style="list-style-type:decimal;font-size:11pt;font-family:Arial,sans-serif;">
