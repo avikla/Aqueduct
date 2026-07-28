@@ -1,1 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /Aqueduct.html
+
 Sitemap: https://jerusalem.meteor.co.il/sitemap.xml
