@@ -20,6 +20,33 @@
             padding: 0;
             margin: 0;
         }
+        .home-view-link {
+            background-color: #008080 !important;
+            color: #ffffff !important;
+        }
+        .home-view-link:hover {
+            background-color: #00646a !important;
+        }
+        [data-tooltip] { position: relative; }
+        [data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 50%;
+            white-space: nowrap;
+            background: #008080;
+            color: #fff;
+            font: 12px/1.4 Arial, Helvetica, sans-serif;
+            padding: 4px 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease;
+            z-index: 1000;
+        }
+        [data-tooltip].tooltip-right::after { left: calc(100% + 8px); transform: translateY(-50%); }
+        [data-tooltip].tooltip-left::after { right: calc(100% + 8px); transform: translateY(-50%); }
+        [data-tooltip]:hover::after, [data-tooltip]:focus::after { opacity: 1; }
         </style>
         <title>Jerusalem Water System</title>
     </head>
@@ -152,7 +179,7 @@
         var homeControl = L.control({position: 'topleft'});
         homeControl.onAdd = function (map) {
             var div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-            var link = L.DomUtil.create('a', 'fas fa-home', div);
+            var link = L.DomUtil.create('a', 'fas fa-home home-view-link', div);
             link.href = '#';
             link.title = 'Reset to original view';
             L.DomEvent.on(link, 'click', function (e) {
@@ -1187,6 +1214,19 @@
             collapsed: true,
         });
         lay.addTo(map);
+        function enhanceTooltip(selector, side, text) {
+            var el = document.querySelector(selector);
+            if (!el) { return; }
+            el.setAttribute('data-tooltip', text || el.title || '');
+            el.removeAttribute('title');
+            el.classList.add(side === 'left' ? 'tooltip-left' : 'tooltip-right');
+        }
+        enhanceTooltip('.leaflet-control-zoom-in', 'right');
+        enhanceTooltip('.leaflet-control-zoom-out', 'right');
+        enhanceTooltip('.leaflet-control-measure-toggle', 'right');
+        enhanceTooltip('.home-view-link', 'right');
+        enhanceTooltip('.leaflet-control-geocoder-icon', 'right');
+        enhanceTooltip('.leaflet-control-layers-toggle', 'left', 'Show/hide map layers');
         setBounds();
         var i = 0;
         layer_Estimatepath_9.eachLayer(function(layer) {
