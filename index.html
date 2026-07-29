@@ -114,26 +114,96 @@
           margin-right: clamp(15px, 6vw, 100px);
         }
 
+        .content-container a {
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+
         ul[dir="rtl"], ol[dir="rtl"] {
           padding-left: 0;
           padding-right: 20px;
         }
+
+        .hero {
+          width: 100%;
+          background: #008080;
+          color: #ffffff;
+          text-align: center;
+          padding: 60px 20px 0 20px;
+          box-sizing: border-box;
+        }
+
+        .hero h1 {
+          margin: 0 0 12px 0;
+          font-size: 2.1em;
+          color: #ffffff;
+        }
+
+        .hero .hero-byline {
+          margin: 0 0 4px 0;
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+
+        .hero .hero-date {
+          margin: 0 0 20px 0;
+          font-size: 0.95em;
+          opacity: 0.9;
+        }
+
+        .hero .hero-tagline {
+          max-width: 700px;
+          margin: 0 auto 28px auto;
+          font-size: 1.1em;
+          line-height: 1.5;
+        }
+
+        .hero .hero-cta {
+          display: inline-block;
+          background: #ffffff;
+          color: #008080;
+          font-weight: bold;
+          font-size: 1.2em;
+          padding: 8px 20px;
+          border-radius: 6px;
+          text-decoration: none;
+          margin-bottom: 40px;
+        }
+
+        .hero svg {
+          display: block;
+          width: 100%;
+          height: 30px;
+        }
+
+        @media (max-width: 600px) {
+          .hero { padding-top: 45px; }
+          .hero h1 { font-size: 1.5em; }
+          .hero .hero-byline { font-size: 1.2em; }
+          .hero .hero-tagline { font-size: 1em; }
+        }
         </style>
+
         
     </head>
    
     <body id="top">
 		<button id="lang-toggle" onclick="toggleLang()" type="button" style="position: fixed; top: 10px; left: 10px; z-index: 1000; background:#eee;border:1px solid #008080;color:#008080;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1em;">עברית</button>
-		<h1 style="color: #5e9ca0; text-align: center;"><span data-en="The Aqueducts Water System to Jerusalem" data-he="מערכת אמות המים לירושלים" style="color: #008080;">The Aqueducts Water System to Jerusalem</span></h1>
-		<p style="color: #5e9ca0; text-align: center; font-size: 1.5em; font-weight: bold;"><span data-en="Created by Avi Klayman" data-he="נוצר על ידי אבי קליימן" style="color: #008080;">Created by Avi Klayman</span></p>
+		<div class="hero">
+			<h1><span data-en="The Aqueduct Water System of Jerusalem" data-he="מערכת אמות המים לירושלים">The Aqueduct Water System of Jerusalem</span></h1>
+			<p class="hero-byline"><span data-en="Created by Avi Klayman" data-he="נוצר על ידי אבי קליימן">Created by Avi Klayman</span></p>
+			<p class="hero-date"><span data-en="December 2024 (last update: Jul-2026)" data-he="דצמבר 2024 (עדכון אחרון: יולי 2026)">December 2024 (last update: Jul-2026)</span></p>
+			<p class="hero-tagline"><span data-en="Interactive map and research summary of the Roman-era aqueduct system supplying Jerusalem from Solomon's Pools — 82.5km of channels, tunnels, and archaeological findings, mapped with exact geographical coordinates (ESPG:4326)." data-he="מפה אינטראקטיבית וסיכום מחקר של מערכת אמות המים מתקופת הרומאים שהזינה את ירושלים מבריכות שלמה — 82.5 ק״מ של תעלות, מנהרות וממצאים ארכיאולוגיים, ממופים בקואורדינטות גיאוגרפיות מדויקות (ESPG:4326).">Interactive map and research summary of the Roman-era aqueduct system supplying Jerusalem from Solomon's Pools — 82.5km of channels, tunnels, and archaeological findings, mapped with exact geographical coordinates (ESPG:4326).</span></p>
+			<a href="#mapview" class="hero-cta"><span data-en="↓ Jump straight to the map" data-he="↓ קפצו ישר למפה">&darr; Jump straight to the map</span></a>
+			<svg viewBox="0 0 700 30" preserveAspectRatio="none" aria-hidden="true">
+				<path d="M0,15 Q17.5,0 35,15 T70,15 T105,15 T140,15 T175,15 T210,15 T245,15 T280,15 T315,15 T350,15 T385,15 T420,15 T455,15 T490,15 T525,15 T560,15 T595,15 T630,15 T665,15 T700,15" fill="none" stroke="#009688" stroke-width="4"/>
+				<path d="M0,20 Q17.5,8 35,20 T70,20 T105,20 T140,20 T175,20 T210,20 T245,20 T280,20 T315,20 T350,20 T385,20 T420,20 T455,20 T490,20 T525,20 T560,20 T595,20 T630,20 T665,20 T700,20" fill="none" stroke="#ab47bc" stroke-width="4"/>
+				<path d="M0,25 Q17.5,16 35,25 T70,25 T105,25 T140,25 T175,25 T210,25 T245,25 T280,25 T315,25 T350,25 T385,25 T420,25 T455,25 T490,25 T525,25 T560,25 T595,25 T630,25 T665,25 T700,25" fill="none" stroke="#42a5f5" stroke-width="4"/>
+			</svg>
+		</div>
 		<p style="text-align: center;"><span style="color: #008080;"><a style="color: #008080;" href="mailto:avi@meteor.co.il">avi@meteor.co.il</a></span></p>
-		<p style="text-align: center;"><span data-en="December 2024 (last update: Jul-2026)" data-he="דצמבר 2024 (עדכון אחרון: יולי 2026)" style="color: #008080;">December 2024 (last update: Jul-2026)</span></p>
 		<p  style="text-align: center;"><span data-en="This webpage summarizes numerous research findings and documents regarding the precise paths, tunnels and locations" data-he="דף זה מסכם ממצאי מחקר ומסמכים רבים בנוגע למסלולים, מנהרות ומיקומים המדויקים">This webpage summarizes numerous research findings and documents regarding the precise paths, tunnels and locations</span></p>
-		<p  style="text-align: center;"><span data-en="Each tunnel and location is mapped with exact geographical coordinates (ESPG:4326)" data-he="כל מנהרה ומיקום ממופים בקואורדינטות גיאוגרפיות מדויקות (ESPG:4326)">  Each tunnel and location is mapped with exact geographical coordinates (ESPG:4326)</span></p>
 		<p  style="text-align: center;"><span data-en="Any feedback, corrections or suggestions are welcomed" data-he="כל משוב, תיקון או הצעה יתקבלו בברכה">  Any feedback, corrections or suggestions are welcomed</span></p>
-		<p style="text-align: center;">
-			<a href="#mapview" style="display: inline-block; color: #ffffff; background-color: #008080; font-weight: bold; font-size: 1.2em; padding: 8px 20px; border-radius: 6px; text-decoration: none;"><span data-en="↓ Jump straight to the map" data-he="↓ קפצו ישר למפה">&darr; Jump straight to the map</span></a>
-		</p>
 		<div class="content-container">
 		<h2><span data-en="Brief explanation" data-he="הסבר קצר">Brief explanation</span></h2>
 		<p><span data-en="This Roman-era water system, constructed between mid 2nd century BC to the 1st century AC, relied solely on gravity. At its heart are three large reservoirs known as Solomon's Pools, located southwest of Bethlehem. The total length is 82.5 kilometers." data-he="מערכת מים זו מתקופת הרומאים, שנבנתה בין אמצע המאה ה-2 לפנה״ס למאה ה-1 לספירה, פעלה אך ורק בכוח הכבידה. במרכזה שלוש בריכות גדולות המכונות בריכות שלמה, הממוקמות מדרום-מערב לבית לחם. האורך הכולל הוא 82.5 ק״מ.">This Roman-era water system, constructed between mid 2nd century BC to the 1st century AC, relied solely on gravity. At its heart are three large reservoirs known as Solomon's Pools, located southwest of Bethlehem. The total length is 82.5 kilometers.</span></p>
@@ -238,7 +308,7 @@
 						Aqueducts’. Accessed 12 November 2024.</span><a
 						href="https://www.google.com/maps/d/viewer?mid=1wI1UDtKBqh2PjbJcPZv67-TSWC4"><span
 							style="font-size:11pt;font-family:Arial,sans-serif;"> </span><u><span
-								style="color:#1155cc;font-size:11pt;font-family:Arial,sans-serif;">https://www.google.com/maps/d/viewer?mid=1wI1UDtKBqh2PjbJcPZv67-TSWC4\u003c/span\u003e\u003c/u\u003e\u003c/a\u003e\u003cspan</span></u></a><span
+								style="color:#1155cc;font-size:11pt;font-family:Arial,sans-serif;">https://www.google.com/maps/d/viewer?mid=1wI1UDtKBqh2PjbJcPZv67-TSWC4</span></u></a><span
 						style="font-size:11pt;font-family:Arial,sans-serif;">.</span></p>
 			</li>
 			<li dir="auto" style="list-style-type:decimal;font-size:11pt;font-family:Arial,sans-serif;">
