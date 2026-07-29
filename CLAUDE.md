@@ -38,7 +38,21 @@ deployed as a static site via GitHub Pages with a custom domain.
   map itself and the Bibliography are not part of this toggle.
 - Regenerating the map from QGIS will overwrite `Aqueduct.html` and
   `data/*.js` — re-apply any manual fixes (e.g. `pdfs/` path prefixes,
-  the pinch-zoom viewport fix) after a re-export.
+  the pinch-zoom viewport fix, the custom home/reset-view control, and the
+  hover-tooltip styling on the map's Leaflet controls) after a re-export.
+
+## Gotchas
+- `body { height: 100vh; overflow: auto; }` swallows `margin-bottom` on the
+  last in-flow element — it won't show up when scrolled to the bottom. Use
+  an explicit spacer element with `height` instead.
+- To give English text a different font while keeping Hebrew on Arial, just
+  list the new font first with Arial as fallback (e.g. `'Trebuchet MS',
+  Arial, sans-serif`) — most non-Hebrew fonts lack Hebrew glyphs, so the
+  browser auto-falls-back to Arial per character, even mid-line. No
+  lang-scoped CSS needed.
+- `file://` is blocked by the Playwright browser tool's CSP — serve the
+  site with `python -m http.server <port>` first, then navigate to
+  `localhost`.
 
 ## Deployment
 GitHub Pages, custom domain via `CNAME` → `jerusalem.meteor.co.il`.
