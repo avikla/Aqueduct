@@ -185,18 +185,6 @@
         .hero > .hero-cta     { animation-delay: .55s; }
         @keyframes hero-rise-in { to { opacity: 1; transform: translateY(0); } }
 
-        @media (prefers-reduced-motion: reduce) {
-          .hero .sheen, .hero .breathe {
-            animation: none !important;
-          }
-          .hero > h1, .hero > .hero-byline, .hero > .hero-date,
-          .hero > .hero-tagline, .hero > .hero-cta {
-            animation: none !important;
-            opacity: 1;
-            transform: none;
-          }
-        }
-
         .hero h1 {
           margin: 0 0 12px 0;
           font-size: 2.1em;
