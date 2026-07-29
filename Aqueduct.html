@@ -149,6 +149,22 @@
         measureControl.addTo(map);
         document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
         document.getElementsByClassName('leaflet-control-measure-toggle')[0].className += ' fas fa-ruler';
+        var homeControl = L.control({position: 'topleft'});
+        homeControl.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+            var link = L.DomUtil.create('a', 'fas fa-home', div);
+            link.href = '#';
+            link.title = 'Reset to original view';
+            L.DomEvent.on(link, 'click', function (e) {
+                L.DomEvent.stopPropagation(e);
+                L.DomEvent.preventDefault(e);
+                if (bounds_group.getLayers().length) {
+                    map.fitBounds(bounds_group.getBounds());
+                }
+            });
+            return div;
+        };
+        homeControl.addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             if (bounds_group.getLayers().length) {
