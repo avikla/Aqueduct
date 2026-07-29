@@ -130,12 +130,71 @@
         }
 
         .hero {
+          position: relative;
           width: 100%;
           background: #008080;
           color: #ffffff;
           text-align: center;
           padding: 60px 20px 0 20px;
           box-sizing: border-box;
+          overflow: hidden;
+          isolation: isolate;
+        }
+
+        .hero .sheen {
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background: linear-gradient(115deg,
+            transparent 0%, transparent 38%,
+            rgba(255,255,255,0.22) 48%, rgba(255,255,255,0.32) 52%, rgba(255,255,255,0.22) 56%,
+            transparent 66%, transparent 100%);
+          background-size: 260% 100%;
+          animation: hero-sheen-move 6s linear infinite;
+        }
+        @keyframes hero-sheen-move {
+          0%   { background-position: 120% 0; }
+          100% { background-position: -120% 0; }
+        }
+
+        .hero .breathe {
+          position: absolute;
+          inset: 0;
+          z-index: -2;
+          background: radial-gradient(ellipse 80% 60% at 50% 0%, #00969a, #007373 65%);
+          animation: hero-breathe 8s ease-in-out infinite;
+        }
+        @keyframes hero-breathe {
+          0%, 100% { opacity: 1; }
+          50%      { opacity: 0.75; }
+        }
+
+        .hero > h1,
+        .hero > .hero-byline,
+        .hero > .hero-date,
+        .hero > .hero-tagline,
+        .hero > .hero-cta {
+          opacity: 0;
+          transform: translateY(14px);
+          animation: hero-rise-in 0.7s ease-out forwards;
+        }
+        .hero > h1            { animation-delay: .05s; }
+        .hero > .hero-byline  { animation-delay: .18s; }
+        .hero > .hero-date    { animation-delay: .28s; }
+        .hero > .hero-tagline { animation-delay: .4s; }
+        .hero > .hero-cta     { animation-delay: .55s; }
+        @keyframes hero-rise-in { to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero .sheen, .hero .breathe {
+            animation: none !important;
+          }
+          .hero > h1, .hero > .hero-byline, .hero > .hero-date,
+          .hero > .hero-tagline, .hero > .hero-cta {
+            animation: none !important;
+            opacity: 1;
+            transform: none;
+          }
         }
 
         .hero h1 {
@@ -213,6 +272,8 @@
     <body id="top">
 		<button id="lang-toggle" onclick="toggleLang()" type="button" style="position: fixed; top: 10px; left: 10px; z-index: 1000; background:#eee;border:1px solid #008080;color:#008080;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:1em;">עברית</button>
 		<div class="hero">
+			<div class="breathe" aria-hidden="true"></div>
+			<div class="sheen" aria-hidden="true"></div>
 			<h1><span data-en="The Aqueduct Water System of Jerusalem" data-he="מערכת אמות המים לירושלים">The Aqueduct Water System of Jerusalem</span></h1>
 			<p class="hero-byline"><span data-en="Created by Avi Klayman" data-he="נוצר על ידי אבי קליימן">Created by Avi Klayman</span></p>
 			<p class="hero-date"><span data-en="December 2024 (last update: Jul-2026)" data-he="דצמבר 2024 (עדכון אחרון: יולי 2026)">December 2024 (last update: Jul-2026)</span></p>
