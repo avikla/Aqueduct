@@ -150,11 +150,15 @@
             rgba(255,255,255,0.22) 48%, rgba(255,255,255,0.32) 52%, rgba(255,255,255,0.22) 56%,
             transparent 66%, transparent 100%);
           background-size: 260% 100%;
-          animation: hero-sheen-move 6s linear infinite;
+          animation: hero-sheen-move 6s linear 3;
+          animation-fill-mode: forwards;
         }
         @keyframes hero-sheen-move {
           0%   { background-position: 120% 0; }
           100% { background-position: -120% 0; }
+        }
+        html[lang="he"] .hero .sheen {
+          animation-direction: reverse;
         }
 
         .hero .breathe {
@@ -162,7 +166,8 @@
           inset: 0;
           z-index: -2;
           background: radial-gradient(ellipse 80% 60% at 50% 0%, #00969a, #007373 65%);
-          animation: hero-breathe 8s ease-in-out infinite;
+          animation: hero-breathe 8s ease-in-out 3;
+          animation-fill-mode: forwards;
         }
         @keyframes hero-breathe {
           0%, 100% { opacity: 1; }
@@ -283,7 +288,7 @@
 		<h3><span data-en="Southern feeder channels" data-he="תעלות הזנה דרומיות">Southern feeder channels</span></h3>
 		<p><span data-en="These pools were fed from the south by two main channels, each sourcing water from several wells (marked in red):" data-he="בריכות אלה הוזנו מדרום על ידי שתי תעלות עיקריות, שכל אחת שאבה מים ממספר בארות (מסומנות באדום):">These pools were fed from the south by two main channels, each sourcing water from several wells (marked in red):</span></p>
 		<ul>
-		<li data-en-html='The Arrub aqueduct (<span style="color: #009688;"><strong>green 41,308m</strong></span>) - It begins at the Arrub pool and includes three tunnels.' data-he-html='אמת ארוב (<span style="color: #009688;"><strong>ירוק, 41,308 מ׳</strong></span>) - מתחילה בבריכת ארוב וכולל שלוש מנהרות.'>The Arrub aqueduct (<span style="color: #009688;"><strong>green 41,308m</strong></span>) - It begins at the Arrub pool and includes three tunnels.</li>
+		<li data-en-html='The Arrub aqueduct (<span style="color: #009688;"><strong>green 41,308m</strong></span>) - It begins at the Arrub pool and includes three tunnels.' data-he-html='אמת ערוב (<span style="color: #009688;"><strong>ירוק, 41,308 מ׳</strong></span>) - מתחילה בבריכת ערוב וכולל שלוש מנהרות.'>The Arrub aqueduct (<span style="color: #009688;"><strong>green 41,308m</strong></span>) - It begins at the Arrub pool and includes three tunnels.</li>
 		<li data-en-html='The Biyar tunnel (<span style="color: #ab47bc;"><strong>purple 5,012m</strong></span>) - It starts at Ein-Biyar with a long tunnel before passing through the Dahr-Baku tunnel.' data-he-html='אמת ביאר (<span style="color: #ab47bc;"><strong>סגול, 5,012 מ׳</strong></span>) - מתחילה בעין ביאר במנהרה ארוכה, ולפני כן עובר דרך מנהרת דהר-באכו.'>The Biyar tunnel (<span style="color: #ab47bc;"><strong>purple 5,012m</strong></span>) - It starts at Ein-Biyar with a long tunnel before passing through the Dahr-Baku tunnel.</li>
 		</ul>
 		<p> </p>
@@ -298,16 +303,15 @@
 		<li data-en-html='The upper aqueduct (<span style="color: #42a5f5;"><strong>blue 14,735m</strong></span>). Positioned about 30 meters higher than the lower aqueduct. <br />West of Bethlehem, it employed an inverted-siphon made of stone. <br />Its exact path into northern Jerusalem remains uncertain, so two possible routes are shown in <span style="color: #ab47bc;"><strong>purple</strong></span> with bridge or inverted-siphon options. ' data-he-html='אמת המים העליונה (<span style="color: #42a5f5;"><strong>כחול, 14,735 מ׳</strong></span>). ממוקמת כ-30 מטר גבוה יותר מאמת המים התחתונה. <br />ממערב לבית לחם נעשה בה שימוש בסיפון הפוך העשוי אבן. <br />מסלולה המדויק אל תוך צפון ירושלים אינו ודאי, ולכן מוצגים שני מסלולים אפשריים ב<span style="color: #ab47bc;"><strong>סגול</strong></span>, עם אפשרויות של גשר או סיפון הפוך.'>The upper aqueduct (<span style="color: #42a5f5;"><strong>blue 14,735m</strong></span>). Positioned about 30 meters higher than the lower aqueduct. <br />West of Bethlehem, it employed an inverted-siphon made of stone. <br />Its exact path into northern Jerusalem remains uncertain, so two possible routes are shown in <span style="color: #ab47bc;"><strong>purple</strong></span> with bridge or inverted-siphon options. </li>
 		</ul>
 		<p> </p>
-		<p><span data-en="Tunnels are indicated in yellow, along with their known construction shafts (red circles)." data-he="מנהרות מסומנות בצהוב, יחד עם פירי הבנייה הידועים שלהן (עיגולים אדומים).">Tunnels are indicated in yellow, along with their known construction shafts (red circles). </span></p>
-		<p><span data-en="Archaeological discoveries are noted with green diamonds and are clickable. Many other points on the map are clickable, providing additional information and links to relevant articles." data-he="ממצאים ארכיאולוגיים מסומנים ביהלומים ירוקים וניתנים ללחיצה. נקודות רבות נוספות במפה ניתנות ללחיצה, ומספקות מידע נוסף וקישורים למאמרים רלוונטיים.">Archaeological discoveries are noted with green diamonds and are clickable. Many other points on the map are clickable, providing additional information and links to relevant articles.</span></p>
-		<p> </p>
 		<h3><span data-en="Bonus: Gihon-Siloah system" data-he="בונוס: מערכת גיחון-השילוח">Bonus: Gihon-Siloah system</span></h3>
 		<p><span data-en="Bonus: The system of Gihon-Siloah (Silowan) that was built in the 6th century BC is added to the map south of the Temple Mountain." data-he="בונוס: מערכת גיחון-השילוח שנבנתה במאה ה-6 לפנה״ס נוספה למפה מדרום להר הבית.">Bonus: The system of Gihon-Siloah (Silowan) that was built in the 6th century BC is added to the map south of the Temple Mountain.</span></p>
 		<p> </p>
 		</div>
 
+		<hr style="margin: 0; border: none; border-top: 1px solid #ccc;">
+
 		<div class="content-container" style="display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: center; margin-bottom: 10px;">
-			<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="display:inline-block;width:14px;height:14px;background:#009688;border-radius:2px;"></span><span data-en="Arrub aqueduct (41,308m)" data-he="אמת ארוב (41,308 מ׳)">Arrub aqueduct (41,308m)</span></span>
+			<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="display:inline-block;width:14px;height:14px;background:#009688;border-radius:2px;"></span><span data-en="Arrub aqueduct (41,308m)" data-he="אמת ערוב (41,308 מ׳)">Arrub aqueduct (41,308m)</span></span>
 			<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="display:inline-block;width:14px;height:14px;background:#ab47bc;border-radius:2px;"></span><span data-en="Biyar tunnel (5,012m)" data-he="אמת ביאר (5,012 מ׳)">Biyar tunnel (5,012m)</span></span>
 			<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="display:inline-block;width:14px;height:14px;background:#d32f2f;border-radius:2px;"></span><span data-en="Lower aqueduct (21,447m)" data-he="אמת המים התחתונה (21,447 מ׳)">Lower aqueduct (21,447m)</span></span>
 			<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="display:inline-block;width:14px;height:14px;background:#42a5f5;border-radius:2px;"></span><span data-en="Upper aqueduct (14,735m)" data-he="אמת המים העליונה (14,735 מ׳)">Upper aqueduct (14,735m)</span></span>
@@ -336,6 +340,9 @@
             <li><span data-en="Hover or click on any colored line, marker, or diamond for details and links to relevant articles." data-he="רחפו או לחצו על כל קו, סמן או יהלום צבעוני לפרטים ולקישורים למאמרים רלוונטיים.">Hover or click on any colored line, marker, or diamond for details and links to relevant articles.</span></li>
             <li><span data-en="Use the search box to find a place, and the ruler icon to measure distances." data-he="השתמשו בתיבת החיפוש כדי למצוא מקום, ובסמל הסרגל כדי למדוד מרחקים.">Use the search box to find a place, and the ruler icon to measure distances.</span></li>
         </ol>
+        <h3><span data-en="Map symbols" data-he="סמלי המפה">Map symbols</span></h3>
+        <p><span data-en="Tunnels are indicated in yellow, along with their known construction shafts (red circles)." data-he="מנהרות מסומנות בצהוב, יחד עם פירי הבנייה הידועים שלהן (עיגולים אדומים).">Tunnels are indicated in yellow, along with their known construction shafts (red circles). </span></p>
+        <p><span data-en="Archaeological discoveries are noted with green diamonds and are clickable. Many other points on the map are clickable, providing additional information and links to relevant articles." data-he="ממצאים ארכיאולוגיים מסומנים ביהלומים ירוקים וניתנים ללחיצה. נקודות רבות נוספות במפה ניתנות ללחיצה, ומספקות מידע נוסף וקישורים למאמרים רלוונטיים.">Archaeological discoveries are noted with green diamonds and are clickable. Many other points on the map are clickable, providing additional information and links to relevant articles.</span></p>
 
 		<h2 style="text-align: center;"><span data-en="Source Documents" data-he="מסמכי מקור" style="font-size:11pt;font-family:'Trebuchet MS',Arial,sans-serif;">Source Documents</span></h2>
 		<details>
