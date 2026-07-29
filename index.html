@@ -627,8 +627,8 @@
          window.toggleLang = function () {
              applyLang(window.__siteLang === 'he' ? 'en' : 'he');
          };
-         var saved = 'en';
-         try { saved = localStorage.getItem('siteLang') || 'en'; } catch (e) {}
+         var saved = 'he';
+         try { saved = localStorage.getItem('siteLang') || 'he'; } catch (e) {}
          applyLang(saved);
      })();
      </script>
