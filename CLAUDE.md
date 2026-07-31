@@ -8,7 +8,7 @@ deployed as a static site via GitHub Pages with a custom domain.
 ## Architecture
 - **index.html** — the page wrapper: title, explanatory text (with an EN/HE
   toggle for this prose), a color legend, the embedded map, "Instructions for
-  Use", a "Source Documents" list, and the academic Bibliography.
+  Use", and a single merged Bibliography (see below).
 - **Aqueduct.html** — the actual interactive map. Exported from QGIS via the
   qgis2web plugin (Leaflet-based). Embedded into index.html via `<iframe
   src="Aqueduct.html">`. **Do not hand-edit this file's map/layer logic** —
@@ -22,7 +22,7 @@ deployed as a static site via GitHub Pages with a custom domain.
   existing anchor tags through unchanged). If a PDF is renamed or moved,
   update the href here — nothing else in the codebase reconstructs the path.
 - **pdfs/** — the source-document PDFs referenced from `data/*.js` and listed
-  in index.html's "Source Documents" section.
+  in index.html's Bibliography.
 - **css/, js/, webfonts/, legend/** — third-party Leaflet/qgis2web assets,
   vendored as part of the export. Don't hand-edit; they'd be overwritten on
   re-export too.
@@ -40,6 +40,17 @@ deployed as a static site via GitHub Pages with a custom domain.
   `data/*.js` — re-apply any manual fixes (e.g. `pdfs/` path prefixes,
   the pinch-zoom viewport fix, the custom home/reset-view control, and the
   hover-tooltip styling on the map's Leaflet controls) after a re-export.
+- The Bibliography (`<ol>` inside the collapsible `<details>` in index.html)
+  is a single merged list, sorted chronologically oldest → newest. Each entry
+  that has a matching local PDF starts with a title-link line
+  (`<a href="pdfs/...">Surname – short description (year) [HE/EN]</a><br>`)
+  followed by the full academic citation in a `<p dir="auto">`. Entries with
+  no local PDF (a handful of web references/blog posts) just have the
+  citation `<p>`, no title-link line. Any trailing external link (DOI,
+  JSTOR, archive.org, a plain URL) is on its own line, wrapped in
+  `<span dir="ltr">` so it never gets reordered by RTL text around it. When
+  adding a new source: pick the correct chronological slot, and decide
+  whether it needs a PDF (add to `pdfs/`) or is citation-only.
 
 ## Gotchas
 - `body { height: 100vh; overflow: auto; }` swallows `margin-bottom` on the
@@ -53,6 +64,29 @@ deployed as a static site via GitHub Pages with a custom domain.
 - `file://` is blocked by the Playwright browser tool's CSP — serve the
   site with `python -m http.server <port>` first, then navigate to
   `localhost`.
+- `dir="auto"` on a parent element (e.g. a Bibliography `<li>`) scans *all*
+  descendant text to pick a direction — including a sibling English
+  title-link before the citation. If the label starts with Latin text, the
+  whole `<li>` (citation included) resolves to LTR even when the citation is
+  Hebrew, producing ragged/inconsistent alignment. Fix: put `dir="auto"`
+  directly on the citation `<p>` itself so it resolves independently of any
+  preceding label.
+- A raw LTR URL embedded inline in RTL Hebrew text gets visually reordered
+  by the bidi algorithm and looks mangled. Put the link on its own line
+  (`<br>` before it) wrapped in `<span dir="ltr">` to isolate it.
+- `pdftotext` (available via Git Bash) needs `-enc UTF-8` to extract Hebrew
+  text correctly — without it, Hebrew glyphs come out as blank/garbled
+  spaces while English text extracts fine. `pdftoppm` (needed for the Read
+  tool's PDF-page-image rendering) is not installed in this environment, so
+  page images can't be previewed — use `pdftotext -enc UTF-8` instead to
+  pull citation/bibliographic info out of a new PDF.
+- Hand-editing the Bibliography's `<li>` entries with the Edit tool is
+  fragile: word-wrapped lines use inconsistent tab counts, so a
+  hand-typed multi-line `old_string` frequently fails to match even when it
+  looks right. For any edit touching more than one or two entries, write a
+  small Node script that locates each `<li>` by a short unique text marker
+  and manipulates it programmatically instead of matching exact
+  whitespace.
 
 ## Deployment
 GitHub Pages, custom domain via `CNAME` → `jerusalem.meteor.co.il`.
