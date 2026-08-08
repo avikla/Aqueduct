@@ -24,6 +24,12 @@ deployed as a static site via GitHub Pages with a custom domain.
   Leaflet popup (via `autolinker.link(...)` in Aqueduct.html, which passes
   existing anchor tags through unchanged). If a PDF is renamed or moved,
   update the href here — nothing else in the codebase reconstructs the path.
+  To add a one-off photo/image link to a point feature without touching
+  Aqueduct.html's map logic, add a new Feature to a *live* points layer
+  (e.g. `DigsArticles_15.js`) with a `Link to Article` property holding an
+  `<a href="images/...">` snippet — same popup mechanism, no re-export
+  needed (see the Central Solomon / Mamila Pool marker features for the
+  exact pattern).
 - **pdfs/** — the source-document PDFs referenced from `data/*.js` and listed
   in index.html's Bibliography.
 - **css/, js/, webfonts/, legend/** — third-party Leaflet/qgis2web assets,
@@ -83,6 +89,13 @@ deployed as a static site via GitHub Pages with a custom domain.
   tool's PDF-page-image rendering) is not installed in this environment, so
   page images can't be previewed — use `pdftotext -enc UTF-8` instead to
   pull citation/bibliographic info out of a new PDF.
+- Not every file in `data/` is live. `Aqueduct.html` only `<script>`-loads a
+  specific subset (grep `\.js["']` in Aqueduct.html to see which — currently
+  15 files, IDs 2–16). The rest are stale leftovers from earlier qgis2web
+  export runs sharing a base layer name with a different ID suffix (e.g.
+  `Places_12/13/14.js` next to the live `Places_16.js`). Editing a non-live
+  file has no effect on the site — check the script tags before assuming a
+  `data/*.js` file matters.
 - Hand-editing the Bibliography's `<li>` entries with the Edit tool is
   fragile: word-wrapped lines use inconsistent tab counts, so a
   hand-typed multi-line `old_string` frequently fails to match even when it
