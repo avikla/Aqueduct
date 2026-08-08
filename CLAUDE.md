@@ -13,7 +13,10 @@ deployed as a static site via GitHub Pages with a custom domain.
   qgis2web plugin (Leaflet-based). Embedded into index.html via `<iframe
   src="Aqueduct.html">`. **Do not hand-edit this file's map/layer logic** —
   re-running the QGIS export would overwrite manual changes. Non-map-logic
-  tweaks (e.g. the viewport meta tag) are fine.
+  tweaks (e.g. the viewport meta tag) are fine. The QGIS source project
+  (`.qgz`/shapefiles/rasters) lives in a separate repo, not under this
+  folder: `Aqueduct-Latest` (GitHub: `avikla/Aqueduct-Latest`), locally at
+  `Follow-up Past\GIS\GIS Projects\QGIS Projects\Aqueduct-Latest\Aqueduct`.
 - **data/\*.js** — one JS file per map layer (lines, tunnels, shafts, points,
   etc.), each assigning a GeoJSON-like feature collection to a global `var`.
   Also qgis2web exports. Each feature's `Link to Article` property holds a
