@@ -36,6 +36,13 @@ var json_Shafts_13 = {
 { "type": "Feature", "properties": { "TunnelName": "Biyar", "Shaft No": "25" }, "geometry": { "type": "Point", "coordinates": [ 35.16626201398573, 31.675237802140288 ] } },
 { "type": "Feature", "properties": { "TunnelName": "Arrub North", "Shaft No": "1" }, "geometry": { "type": "Point", "coordinates": [ 35.192632171721634, 31.674718022870469 ] } },
 { "type": "Feature", "properties": { "TunnelName": "Arrub North", "Shaft No": "2" }, "geometry": { "type": "Point", "coordinates": [ 35.192634220606585, 31.674958766852484 ] } },
-{ "type": "Feature", "properties": { "TunnelName": "Arrub North", "Shaft No": "3" }, "geometry": { "type": "Point", "coordinates": [ 35.192619878411918, 31.67521385302917 ] } }
+{ "type": "Feature", "properties": { "TunnelName": "Arrub North", "Shaft No": "3" }, "geometry": { "type": "Point", "coordinates": [ 35.192619878411918, 31.67521385302917 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "1" }, "geometry": { "type": "Point", "coordinates": [ 35.169548036778558, 31.679615858038026 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "2" }, "geometry": { "type": "Point", "coordinates": [ 35.16946202082508, 31.679853710038017 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "3" }, "geometry": { "type": "Point", "coordinates": [ 35.169469940719175, 31.680291685961951 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "4" }, "geometry": { "type": "Point", "coordinates": [ 35.169465005919136, 31.680583399161268 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "5" }, "geometry": { "type": "Point", "coordinates": [ 35.169469792117312, 31.680977531767311 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "6" }, "geometry": { "type": "Point", "coordinates": [ 35.16946747251086, 31.681416588829528 ] } },
+{ "type": "Feature", "properties": { "TunnelName": "Dahr-Baku", "Shaft No": "7" }, "geometry": { "type": "Point", "coordinates": [ 35.169469332505572, 31.681970291509852 ] } }
 ]
 }
