@@ -30,6 +30,19 @@ deployed as a static site via GitHub Pages with a custom domain.
   `<a href="images/...">` snippet — same popup mechanism, no re-export
   needed (see the Central Solomon / Mamila Pool marker features for the
   exact pattern).
+- **Shafts (`data/Shafts_13.js`)** — one Point feature per shaft, schema
+  `{TunnelName, "Shaft No"}` (`"Shaft No"` is a *string*, and numbered
+  independently per tunnel — each tunnel restarts at "1", there's no
+  shared sequence across tunnels). Not every tunnel line in
+  `Tunnels_12.js` has shaft points yet — several are mapped as a line
+  with zero shafts. Adding newly-surveyed shafts for one of these is a
+  plain append to this file, no `Aqueduct.html` changes needed (see the
+  Dahr-Baku Tunnel shafts 1–7, added 2026-08-09, for the pattern). If a
+  `DigsArticles_15.js` marker already exists near the same tunnel (check
+  by tunnel name, not just by area — e.g. fid 69's Hebrew survey name),
+  append an additional `<a>` link (`<br>`-separated) to that entry's
+  `Link to Article` instead of creating a duplicate marker at the same
+  spot.
 - **pdfs/** — the source-document PDFs referenced from `data/*.js` and listed
   in index.html's Bibliography.
 - **css/, js/, webfonts/, legend/** — third-party Leaflet/qgis2web assets,
@@ -47,8 +60,10 @@ deployed as a static site via GitHub Pages with a custom domain.
   map itself and the Bibliography are not part of this toggle.
 - Regenerating the map from QGIS will overwrite `Aqueduct.html` and
   `data/*.js` — re-apply any manual fixes (e.g. `pdfs/` path prefixes,
-  the pinch-zoom viewport fix, the custom home/reset-view control, and the
-  hover-tooltip styling on the map's Leaflet controls) after a re-export.
+  the pinch-zoom viewport fix, the custom home/reset-view control, the
+  hover-tooltip styling on the map's Leaflet controls, and the `Year`
+  field's `.toLocaleString()` → `.toString()` fix, below) after a
+  re-export.
 - The Bibliography (`<ol>` inside the collapsible `<details>` in index.html)
   is a single merged list, sorted chronologically oldest → newest. Each entry
   that has a matching local PDF starts with a title-link line
@@ -103,6 +118,19 @@ deployed as a static site via GitHub Pages with a custom domain.
   small Node script that locates each `<li>` by a short unique text marker
   and manipulates it programmatically instead of matching exact
   whitespace.
+- qgis2web's generated popup template calls `.toLocaleString()` on
+  *every* numeric field, which applies locale thousands-separators (e.g.
+  `Year: 1986` rendered as `1,986`). That's desirable for large numbers
+  like `Yearly Capacity (m3)` but wrong for fields like `Year` — fixed by
+  switching just that one field's call to `.toString()` in
+  `Aqueduct.html` (search `id="Year"`). This is a hand-patch a future
+  QGIS re-export will overwrite (see Conventions).
+- In QGIS, adding a point via the **Attribute Table**'s "New Feature"
+  button creates a feature with attributes but no geometry — silently;
+  it only surfaces later as a "Pan to feature failed: Feature does not
+  have a geometry" error. Always add point features from the map
+  canvas's **Add Point Feature** tool instead (Digitizing Toolbar), which
+  sets geometry and attributes together in one step.
 
 ## Deployment
 GitHub Pages, custom domain via `CNAME` → `jerusalem.meteor.co.il`.

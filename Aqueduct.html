@@ -1050,7 +1050,7 @@
                         <td class="visible-with-data" id="Height_m"colspan="2"><strong>Height (m):</strong><br />' + (feature.properties['Height_m'] !== null ? autolinker.link(feature.properties['Height_m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="Year"colspan="2"><strong>Year:</strong><br />' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Year"colspan="2"><strong>Year:</strong><br />' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Link to Article"colspan="2"><strong>Link:</strong><br />' + (feature.properties['Link to Article'] !== null ? autolinker.link(feature.properties['Link to Article'].toLocaleString()) : '') + '</td>\
